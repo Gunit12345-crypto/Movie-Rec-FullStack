@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════════
    CINEMATCH — FRONTEND LOGIC
    ═══════════════════════════════════════════════ */
-const API_URL = 'https://movie-rec-fullstack.onrender.com/recommend';
+const API_URL = "https://movie-rec-fullstack.onrender.com/recommend";
 
 // Genre labels for visual variety (rotated based on index)
 const GENRES = ['Action', 'Drama', 'Thriller', 'Sci-Fi', 'Adventure', 'Crime', 'Mystery', 'Fantasy'];
