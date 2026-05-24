@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CineMatch — AI Movie Recommendations</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-layer">
+    <div class="bg-gradient"></div>
+    <div class="film-grain"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="scanlines"></div>
+  </div>
+
+  <!-- Floating Particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="logo">
+      <span class="logo-icon">▶</span>
+      <span class="logo-text">CineMatch</span>
+    </div>
+    <div class="header-tag">AI-Powered</div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="main-content">
+    <section class="hero">
+      <div class="hero-eyebrow">
+        <span class="pulse-dot"></span>
+        Powered by Machine Learning
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line">Discover Your</span>
+        <span class="title-line accent">Next Obsession</span>
+      </h1>
+      <p class="hero-subtitle">
+        Enter any movie title and our cosine-similarity engine surfaces films<br>
+        tailored to your exact taste — in milliseconds.
+      </p>
+
+      <!-- Search Box -->
+      <div class="search-wrapper">
+        <div class="search-container" id="searchContainer">
+          <div class="search-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </div>
+          <input
+            type="text"
+            id="movieInput"
+            class="search-input"
+            placeholder="e.g. Inception, Avatar, Interstellar…"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button class="search-btn" id="searchBtn" onclick="getRecommendations()">
+            <span class="btn-text">Recommend</span>
+            <span class="btn-arrow">→</span>
+            <div class="btn-ripple"></div>
+          </button>
+        </div>
+        <div class="search-hint">Try: "The Dark Knight", "Pulp Fiction", "Avengers"</div>
+      </div>
+    </section>
+
+    <!-- Loading State -->
+    <div class="loader-section" id="loaderSection">
+      <div class="loader-ring">
+        <div class="ring r1"></div>
+        <div class="ring r2"></div>
+        <div class="ring r3"></div>
+        <div class="loader-icon">🎬</div>
+      </div>
+      <p class="loader-text">Analyzing cinematic DNA<span class="dots"><span>.</span><span>.</span><span>.</span></span></p>
+    </div>
+
+    <!-- Error State -->
+    <div class="error-section" id="errorSection">
+      <div class="error-card">
+        <div class="error-icon">⚠</div>
+        <h3 class="error-title">Couldn't Find That One</h3>
+        <p class="error-msg" id="errorMsg">Something went wrong. Please try again.</p>
+        <button class="error-retry" onclick="clearError()">Try Again</button>
+      </div>
+    </div>
+
+    <!-- Results Section -->
+    <section class="results-section" id="resultsSection">
+      <div class="results-header">
+        <div class="results-label">
+          <span class="results-count" id="resultsCount"></span>
+          <span class="results-title-text">Recommendations for</span>
+          <span class="results-movie-name" id="resultsMovieName"></span>
+        </div>
+        <div class="results-divider"></div>
+      </div>
+      <div class="cards-grid" id="cardsGrid"></div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>CineMatch &nbsp;·&nbsp; Flask + Scikit-learn &nbsp;·&nbsp; Cosine Similarity Engine</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
