@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════════
    CINEMATCH — FRONTEND LOGIC
    ═══════════════════════════════════════════════ */
-const API_URL = 'http://127.0.0.1:10000/recommend';
+const API_URL = 'https://movie-rec-fullstack.onrender.com/recommend';
 
 // Genre labels for visual variety (rotated based on index)
 const GENRES = ['Action', 'Drama', 'Thriller', 'Sci-Fi', 'Adventure', 'Crime', 'Mystery', 'Fantasy'];
@@ -200,7 +200,7 @@ async function getRecommendations() {
   } catch (err) {
     const isNetworkError = err instanceof TypeError && err.message.includes('fetch');
     const msg = isNetworkError
-      ? 'Cannot connect to the Flask server. Make sure it\'s running on http://127.0.0.1:5000'
+      ? 'Cannot connect to the Flask server. Make sure it\'s running on https://movie-rec-fullstack.onrender.com/recommend'
       : err.message;
 
     document.getElementById('errorMsg').textContent = msg;
